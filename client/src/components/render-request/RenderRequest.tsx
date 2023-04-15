@@ -69,19 +69,19 @@ export const RenderRequest = ({
         value: transaction.data.value,
       });
 
-      setSignature(indx, txn.signature);
+      // setSignature(indx, txn.signature);
 
       return txn;
     } catch {
       return undefined;
     }
-  }, [contractData?.abi, setSignature]);
+  }, [contractData?.abi]);
 
   useEffect(() => {
     if (decodeData?.name) {
-      setSignature(indx, decodeData.name);
+      // setSignature(indx, decodeData.name);
     }
-  }, [decodeData, setSignature]);
+  }, [decodeData]);
 
   return (
     <div className="flex w-full">
@@ -103,6 +103,7 @@ export const RenderRequest = ({
             {BigNumber.from("0").eq(transaction.data.value) ? "on" : "to"}{" "}
             <span className="font-bold">
               <PrettyAddress
+                chainId={chainId}
                 address={transaction.data.to as any}
                 prettyName={contractName || contractData?.info?.ContractName}
               />

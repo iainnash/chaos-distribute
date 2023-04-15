@@ -32,6 +32,6 @@ export const CHAIN_FE = {
   'gnosis': {
     currency: "xDAI",
     color: 'bg-lime-400',
-    scan: '',
+    scan: 'gnosisscan.io',
   }
 }

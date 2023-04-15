@@ -240,7 +240,7 @@ const TokenGatedPage: NextPage<Props> = (props) => {
         </form>
       </Modal>
       <div>
-        <h3>Sent transactions</h3>
+        <h3 className="font-xl mt-4">Sent transactions</h3>
               <ul>
                 {data?.txnsParsed.map((txn, index) => (
                   <TxnDisplay key={index} txn={txn} />

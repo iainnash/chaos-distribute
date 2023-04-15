@@ -117,12 +117,13 @@ updates.process(async () => {
     console.log(`executed ${dataResp}`);
 
     await redis.lpush("transactions", JSON.stringify({ dataResp, random }));
+
     // set executed
     await redis.set(
       `grid:${random.x}:${random.y}`,
       JSON.stringify({ ...random, executing: true }),
       "EX",
-      random.now + 80
+      random.now + 20
     );
   } catch (e: any) {
     console.error(e);

@@ -4,7 +4,6 @@ import { PrettyAddress } from "./PrettyAddress";
 import { DefinitionListItem } from "./DefinitionListItem";
 import { formatEther } from "ethers/lib/utils.js";
 import { formatPretty } from "./format";
-import { DecodeBytecode } from "./DecodeBytecode";
 
 type ContractDataItemsProps = {
   args: ethers.utils.Result;
@@ -48,7 +47,7 @@ export const ContractDataItems = ({
             name={formatPretty(fragment.name)}
             title={fragment.name}
           >
-            <PrettyAddress address={arg.toString()} />
+            <PrettyAddress chainId={5} address={arg.toString()} />
           </DefinitionListItem>
         );
       } else if (fragment.type.startsWith("bytes")) {

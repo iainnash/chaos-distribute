@@ -35,6 +35,6 @@ export const CHAIN_INFO = {
     amountMax: "0.0000001",
     safeTXN: 'https://safe-transaction-gnosis-chain.safe.global',
     rpc: "https://gnosischain-rpc.gateway.pokt.network",
-    safe: '0x66d20ca334Cef34D1695bF27AA3f9e785fF97e01',
+    // safe: '0x66d20ca334Cef34D1695bF27AA3f9e785fF97e01',
   },
 };
