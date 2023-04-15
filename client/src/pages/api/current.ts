@@ -12,7 +12,7 @@ type Item = {
   value: string;
   from: string;
 };
-type Data = { items: Item[], now: number };
+type Data = { items: Item[], now: number, txnsParsed: any };
 
 export default async function handler(
   req: NextApiRequest,
@@ -25,7 +25,10 @@ export default async function handler(
   const result = await redis.mget(keys);
   const items = result.map((i) => (i ? JSON.parse(i) : null));
 
+  const txns = await redis.lrange('transactions', 0, 10);
+  const txnsParsed = txns.map((txn) => JSON.parse(txn));
+
   const now = new Date().getTime() / 1000;
 
-  return res.status(200).json({ items, now });
+  return res.status(200).json({ items, now, txnsParsed });
 }

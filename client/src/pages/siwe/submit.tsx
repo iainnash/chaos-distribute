@@ -11,6 +11,7 @@ import { UserDisplayAddress } from "../../components/UserDisplayAddress";
 import { DECAY_TIME, GRID_BASIS } from "../../constants/ui";
 import { CHAIN_FE } from "../../constants/chains";
 import { LayoutGroup, motion } from "framer-motion";
+import { TxnDisplay } from "../../components/TxnDisplay";
 
 type Props =
   | { isCollector: false }
@@ -36,7 +37,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 };
 
 const inputClass =
-  "bg-red-200 selected:bg-blue-200 p-4 selected:color-white selected:bg-orange color-black bg-white border-1 rounded-md";
+  "bg-red-200 m-4 inline-block selected:bg-blue-200 p-4 selected:color-white selected:bg-orange color-black bg-white border-1 rounded-md";
 const fieldClass = "";
 const buttonItem = "relative  p-4 rounded-lg shadow-lg ";
 
@@ -228,7 +229,7 @@ const TokenGatedPage: NextPage<Props> = (props) => {
           <label>Grid Y: {newID?.y}</label>
           <br />
           <label>
-            <button onClick={submit}>go go, good luck!</button>
+            <button className="m-2 p-2 border-1 rounded-md bg-slate-200 hover:bg-slate-800 hover:text-white" onClick={submit}>go go, good luck!</button>
             {result && (
               <>
                 <br />
@@ -238,7 +239,14 @@ const TokenGatedPage: NextPage<Props> = (props) => {
           </label>
         </form>
       </Modal>
-      <div></div>
+      <div>
+        <h3>Sent transactions</h3>
+              <ul>
+                {data?.txnsParsed.map((txn, index) => (
+                  <TxnDisplay key={index} txn={txn} />
+                ))}
+              </ul>
+      </div>
     </>
   );
 };

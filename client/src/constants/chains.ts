@@ -15,15 +15,23 @@ export const CHAINS = {
 
 export const CHAIN_FE = {
   'goerli': {
-    color: 'bg-teal-400'
+    color: 'bg-teal-400',
+    currency: "GOETH",
+    scan: 'goerli.etherscan.io',
   },
   'polygon mumbai': {
-    color: 'bg-pink-400'
+    currency: "MATIC",
+    color: 'bg-pink-400',
+    scan: 'mumbai.polygonscan.com',
   },
   'mantle testnet': {
-    color: 'bg-cyan-200'
+    currency: "BIT",
+    color: 'bg-cyan-200',
+    scan: '',
   },
   'gnosis': {
-    color: 'bg-lime-400'
+    currency: "xDAI",
+    color: 'bg-lime-400',
+    scan: '',
   }
 }
