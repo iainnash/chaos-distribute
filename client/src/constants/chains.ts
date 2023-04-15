@@ -33,5 +33,10 @@ export const CHAIN_FE = {
     currency: "xDAI",
     color: 'bg-lime-400',
     scan: 'gnosisscan.io',
+  },
+  'taiko': {
+    currency: 'ETH',
+    color: 'bg-lime-500',
+    scan: 'l2explorer.hackathon.taiko.xyz'
   }
 }

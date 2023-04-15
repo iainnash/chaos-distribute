@@ -11,6 +11,10 @@ import Safe, { SafeFactory } from "@safe-global/protocol-kit";
 const redis_url = process.env.REDIS_URL;
 const updates = new Bull("chaos-updates", redis_url);
 
+function get_random (list) {
+  return list[Math.floor((Math.random()*list.length))];
+}
+
 updates.process(async () => {
   console.log("has updates");
 
@@ -27,7 +31,7 @@ updates.process(async () => {
     console.log("nothing to do");
     return;
   }
-  const random = items[Math.floor(items.length * Math.random())];
+  const random = get_random(items);
 
   console.log(random);
 
@@ -56,7 +60,7 @@ updates.process(async () => {
     let to = random.address;
     let value = valueRaw.toString();
 
-    if (random.action === "nft" && chain.nft) {
+    if (random.action === "mint" && chain.nft) {
       const iface = new ethers.utils.Interface([
         "function mint(address to) external",
       ]);
@@ -124,6 +128,8 @@ updates.process(async () => {
         value,
         data,
       };
+
+      console.log(tx);
 
       const txn = await signer.sendTransaction(tx);
       dataResp = await txn.wait();

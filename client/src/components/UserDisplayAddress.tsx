@@ -6,11 +6,7 @@ import { useEffect, useRef } from "react";
 
 export const UserDisplayAddress = ({ address }: { address: string }) => {
   const canv = useRef();
-  useEffect(() => {
-    console.log(canv.current);
-    
-  }, [canv.current]);
-  return <canvas width={400} height={200} ref={canv} />;
+  return <canvas width={400} height={200} ref={canv} />
   // return (
   //     <QrCode
   //       size={120}

@@ -37,4 +37,12 @@ export const CHAIN_INFO = {
     rpc: "https://gnosischain-rpc.gateway.pokt.network",
     // safe: '0x66d20ca334Cef34D1695bF27AA3f9e785fF97e01',
   },
+  taiko: {
+    id: 167002,
+    currency: '',
+    amountMin: "0.0001",
+    amountMax: "0.001",
+    rpc: 'https://l2rpc.hackathon.taiko.xyz',
+
+  }
 };

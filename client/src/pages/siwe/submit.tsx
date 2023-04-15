@@ -124,9 +124,10 @@ const TokenGatedPage: NextPage<Props> = (props) => {
                   {" "}
                 </motion.div>
                 <div className="">
-                  {item.chain} {item.action}
+                  {item.chain} {item.action}<br />
+                  to {item.address.slice(0, 20)}<br />
+                  for a {item.action}
 
-                  <UserDisplayAddress address={item.address} />
                 </div>
               </motion.div>
             ) : (
@@ -188,6 +189,16 @@ const TokenGatedPage: NextPage<Props> = (props) => {
                 value="mantle testnet"
               />
               mantle test
+            </label>
+            <label>
+              <input
+                className={inputClass}
+                type="radio"
+                name="chain"
+                onChange={onChainChange}
+                value="taiko"
+              />
+              taiko
             </label>
             <label>
               <input
