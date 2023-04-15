@@ -20,7 +20,7 @@ contract SparkWinNFT is ERC721 {
      * by default, can be overridden in child contracts.
      */
     function _baseURI() internal override view virtual returns (string memory) {
-        return "https://chaos-distribute.vercel.app/nft/";
+        return "https://chaos-distribute.vercel.app/api/nft/";
     }
 
     function mint(address recipient)

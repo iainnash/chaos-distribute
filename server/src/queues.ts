@@ -50,7 +50,20 @@ updates.process(async () => {
       chain.id
     );
     const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-    const value = ethers.utils.parseEther("0.001");
+    const valueRaw = ethers.utils.parseEther("0.001");
+
+    let data = "0x";
+    let to = random.address;
+    let value = valueRaw.toString();
+
+    if (random.action === "nft" && chain.nft) {
+      const iface = new ethers.utils.Interface([
+        "function mint(address to) external",
+      ]);
+      data = iface.encodeFunctionData("mint", [random.address]);
+      to = chain.nft;
+      value = "0";
+    }
 
     let dataResp;
 
@@ -73,9 +86,9 @@ updates.process(async () => {
       console.log("has sdk");
 
       const safeTransactionData: SafeTransactionDataPartial = {
-        to: random.address,
-        data: "0x",
-        value: value.toString(),
+        to,
+        data,
+        value,
       };
 
       const safeTransaction = await safeSdk.createTransaction({
@@ -107,8 +120,9 @@ updates.process(async () => {
       dataResp = await executeTxResponse.transactionResponse?.wait();
     } else {
       const tx = {
-        to: random.address,
-        value: value,
+        to,
+        value,
+        data,
       };
 
       const txn = await signer.sendTransaction(tx);

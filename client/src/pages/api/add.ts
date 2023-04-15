@@ -15,7 +15,7 @@ export default async function handler(
 
   const request = JSON.parse(req.body);
 
-  const { coords: {x, y}, chain, target, calldata, value } = request;
+  const { coords: {x, y}, chain, action, target, calldata, value } = request;
   if (x < 0 || x >= GRID_BASIS || y < 0 || y >= GRID_BASIS) {
     return res.status(500).json({ ok: false });
   }
@@ -30,6 +30,7 @@ export default async function handler(
       y,
       chain,
       target,
+      action,
       calldata,
       address,
       value,

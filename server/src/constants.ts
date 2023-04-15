@@ -4,19 +4,19 @@ export const CHAIN_INFO = {
   goerli: {
     id: 5,
     currency: "GOETH",
-    nft: "",
     amountMin: "0.01",
     amountMax: "0.04",
     rpc: "https://rpc.ankr.com/eth_goerli",
     safe: '0x11F254Fb7Bd4b7C36aAC38531E023833A753F393',
+    nft: '0x21461A641ec9B68a048e0Ff303E7b22F148D62Da',
     safeTXN: 'https://safe-transaction-goerli.safe.global'
   },
   "polygon mumbai": {
     id: 80001,
     currency: "MATIC",
-    nft: "",
     amountMin: "0.01",
     amountMax: "0.04",
+    nft: '0x37c89a8E5B6D2063e242C68e9e7eEE44c5A07Fc7',
     rpc: "https://rpc.ankr.com/polygon_mumbai",
   },
   "mantle testnet": {
