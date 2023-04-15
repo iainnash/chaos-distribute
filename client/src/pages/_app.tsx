@@ -3,7 +3,6 @@ import NextNProgress from "nextjs-progressbar";
 
 import "../styles/globals.css";
 
-import { CHAIN_ID } from "../utils/constants";
 import { Header } from "../components/Header";
 import { WagmiConfig, createClient, configureChains } from "wagmi";
 import { mainnet, goerli, polygonMumbai } from "wagmi/chains";
